@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Result, results } from '../results';
 
 @Component({
   selector: 'app-podium',
@@ -7,14 +6,12 @@ import { Result, results } from '../results';
   styleUrls: ['./podium.component.scss'],
 })
 export class PodiumComponent implements OnInit {
-  results: Array<Result> = results;
+  @Input() drivers: Array<string> = [];
+  @Output() hidePodiumEvent = new EventEmitter();
 
-  @Input() selectedIndex: number = -1;
-  @Output() customSelectionEvent = new EventEmitter<number>();
-
-  changeSelectedIndex(index: number) {
-    console.log(`Selected index at podium component: ` + index);
-    this.customSelectionEvent.emit(index);
+  hidePodium() {
+    console.log('Hide podium');
+    this.hidePodiumEvent.emit();
   }
 
   constructor() {}

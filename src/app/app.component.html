@@ -1,8 +1,11 @@
+<h1>Angular Week 4. Formula One Results</h1>
+
 <app-results-table
-  [selectedIndex]="selectedIndex"
-  (customSelectionEvent)="changeSelectedIndex($event)"
+  [results]="results"
+  [(selectedIndex)]="selectedIndex"
 ></app-results-table>
 <app-podium
-  [selectedIndex]="selectedIndex"
-  (customSelectionEvent)="changeSelectedIndex($event)"
+  *ngIf="selectedIndex !== undefined"
+  [drivers]="results[selectedIndex].podium"
+  (hidePodiumEvent)="selectedIndex = undefined"
 ></app-podium>

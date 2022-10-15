@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Result, results } from './results';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  selectedIndex: number = -1;
+  results: Array<Result> = results;
+  selectedIndex: number | undefined;
 
   changeSelectedIndex(index: number) {
     this.selectedIndex = index;

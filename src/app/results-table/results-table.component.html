@@ -1,5 +1,3 @@
-<p>results-table works!</p>
-
 <table>
   <thead>
     <th>FUTAM</th>
@@ -10,11 +8,11 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let result of results; index as i; even as even; odd as odd"
+      *ngFor="let result of results; index as i; even as even"
       (click)="changeSelectedIndex(i)"
       [ngClass]="{
         selected: i === selectedIndex,
-        'is-odd': odd,
+        'is-odd': !even,
         'is-even': even
       }"
     >

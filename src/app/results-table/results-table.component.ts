@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Result, results } from '../results';
+import { Result } from '../results';
 
 @Component({
   selector: 'app-results-table',
@@ -7,14 +7,13 @@ import { Result, results } from '../results';
   styleUrls: ['./results-table.component.scss'],
 })
 export class ResultsTableComponent implements OnInit {
-  results: Array<Result> = results;
-
-  @Input() selectedIndex: number = -1;
-  @Output() customSelectionEvent = new EventEmitter<number>();
+  @Input() results: Array<Result> = [];
+  @Input() selectedIndex: number | undefined;
+  @Output() selectedIndexChange = new EventEmitter<number>();
 
   changeSelectedIndex(index: number) {
     console.log(`Selected index at results-table component: ` + index);
-    this.customSelectionEvent.emit(index);
+    this.selectedIndexChange.emit(index);
   }
 
   constructor() {}
