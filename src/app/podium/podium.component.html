@@ -1,0 +1,7 @@
+<div *ngIf="selectedIndex >= 0">
+  <div *ngFor="let person of results[selectedIndex].podium; index as i">
+    {{ i }}. {{ person }}
+  </div>
+
+  <button (click)="changeSelectedIndex(-1)">Hide podium</button>
+</div>

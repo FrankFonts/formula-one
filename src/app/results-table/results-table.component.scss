@@ -1,0 +1,37 @@
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.is-even {
+    background-color: lightcyan;
+    &:hover {
+      background-color: rgb(212, 251, 251);
+    }
+  }
+
+  &.is-odd {
+    background-color: lightblue;
+    &:hover {
+      background-color: rgb(160, 209, 226);
+    }
+  }
+
+  &.selected {
+    background-color: yellow;
+
+    &:hover {
+      background-color: rgb(241, 241, 3);
+    }
+  }
+}
+
+td {
+  padding: 8px 16px;
+}
